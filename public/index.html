@@ -1,0 +1,41 @@
+<!doctype html>
+<!--
+  public/index.html
+  A minimal demo page for the assistant. Copy the <section class="chat"> block
+  and the two script/style tags into your own site to embed it.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ask Alex</title>
+  <meta name="description" content="A grounded AI assistant that answers questions about Alex's work, in the first person.">
+  <link rel="stylesheet" href="/chat.css">
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">Portfolio assistant</p>
+      <h1>Ask me anything about my work</h1>
+      <p class="lede">An AI assistant that answers from my real experience, in my voice, and says so when it doesn't know.</p>
+    </header>
+
+    <section class="chat" aria-label="Chat with the portfolio assistant">
+      <div class="chat-top">
+        <span class="chat-name"><span class="dot" aria-hidden="true"></span>AlexLLM</span>
+        <button type="button" id="chatReset" class="ghost">New conversation</button>
+      </div>
+      <!-- aria-live lets screen readers announce answers as they arrive -->
+      <div id="chatLog" class="chat-log" aria-live="polite"></div>
+      <form id="chatForm" class="chat-form">
+        <label class="sr-only" for="chatInput">Your question</label>
+        <input id="chatInput" autocomplete="off" maxlength="1500" placeholder="Ask about my experience, projects or availability">
+        <button id="chatSend" type="submit" disabled aria-label="Send">↑</button>
+      </form>
+      <p class="fineprint">AI assistant. It answers from my resume and can make mistakes. Please don't share personal information.</p>
+    </section>
+  </main>
+  <!-- type="module" so chat.js can import tags.js; no inline script, so the CSP can forbid them -->
+  <script type="module" src="/chat.js"></script>
+</body>
+</html>
